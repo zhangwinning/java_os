@@ -11,9 +11,9 @@ public class Floppy {
     };
     
    
-    public int SECTOR_SIZE = 512;
+    public int SECTOR_SIZE = 512;    //每个扇区的大小是512个字节
     private int CYLINDER_COUNT = 80; //80个柱面
-    private int SECTORS_COUNT = 18;
+    private int SECTORS_COUNT = 18;     //每个柱面是18个扇区
     private MAGNETIC_HEAD magneticHead = MAGNETIC_HEAD.MAGNETIC_HEAD_0;
     private int current_cylinder = 0;
     private int current_sector = 0;
@@ -114,15 +114,6 @@ public class Floppy {
               for (int head = 0; head <= MAGNETIC_HEAD.MAGETIC_HEAD_1.ordinal(); head++) {
                   for (int sector = 1; sector <= SECTORS_COUNT; sector++) {
                         byte[] buf = readFloppy(MAGNETIC_HEAD.values()[head], cylinder, sector);
-                        /*if (head == 0 && cylinder == 0 && sector == 2) {
-                            int k = 0;
-                            k = 2;
-                            byte[] buffer = new byte[]{'H', 'e', 'l','l','o', 'w', 'o', 'r', 'l', 'd'};
-                            for (int i = 0; i < buffer.length; i++) {
-                                buf[i] = buffer[i];
-                            }
-                            
-                        }*/
                         out.write(buf);
                     }
                 
