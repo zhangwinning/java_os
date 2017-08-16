@@ -56,7 +56,6 @@ public class OperatingSystem {
    
 
     public static void main(String[] args) {
-        //这里的`boot.bat`相当于内核加载器。
     	OperatingSystem op = new OperatingSystem("boot.bat");
     	op.makeFllopy();
     }
